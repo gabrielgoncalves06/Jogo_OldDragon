@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Old_dragon</title>
+
+</head>
+<body>
+    <header class="titulo">
+        <h1>old dragon</h1>
+         <img src="./static/image/image_dragão.png"   width="100" height="200" alt="image_dragão" >
+    </header>
+    <main>
+         {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

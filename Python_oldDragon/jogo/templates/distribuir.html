@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="h2_p">Distribuir Atributos - Estilo Aventureiro</h2>
+
+<form class="form_p" method="post" action="{{ url_for('finalizar_distribuicao') }}">
+    <input type="hidden" name="nome" value="{{ nome }}">
+    <input type="hidden" name="raca" value="{{ raca_escolhida }}">
+    <input type="hidden" name="classe" value="{{ classe_escolhida }}">
+
+    <p>Você rolou os seguintes valores: <strong>{{ valores }}</strong></p>
+
+    <p>Atribua cada valor a um atributo:</p>
+    <table border="1">
+        <tr><th>Atributo</th><th>Valor</th></tr>
+        {% for atr in atributos %}
+        <tr>
+            <td>{{ atr }}</td>
+            <td>
+                <select name="{{ atr }}" required>
+                    {% for v in valores %}
+                        <option value="{{ v }}">{{ v }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button type="submit">Finalizar Personagem</button>
+</form>
+{% endblock %}
