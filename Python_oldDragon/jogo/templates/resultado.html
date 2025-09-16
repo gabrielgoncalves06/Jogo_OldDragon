@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="h2_p">Personagem Criado</h2>
+<div class="form_p">
+    <p><strong>Nome:</strong> {{ personagem.nome }}</p>
+    <p><strong>Raça:</strong> {{ personagem.raca.nome }}</p>
+    <p><strong>Classe:</strong> {{ personagem.classe.nome }}</p>
+
+    <h3>Atributos</h3>
+    <table border="1">
+        <tr><th>Atributo</th><th>Valor</th></tr>
+        {% for nome, valor in personagem.atributos.items() %}
+        <tr>
+            <td>{{ nome }}</td>
+            <td>{{ valor }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Características Raciais</h3>
+    <ul>
+        <li>Movimento: {{ personagem.raca.movimento }}</li>
+        <li>Alinhamento: {{ personagem.raca.alinhamento_tendencia }}</li>
+        {% for hab in personagem.raca.habilidades %}
+            <li>{{ hab }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Características da Classe</h3>
+    <ul>
+        <li>Dado de vida: {{ personagem.classe.dado_vida }}</li>
+        <li>Atributo Primário: {{ personagem.classe.atributo_primario }}</li>
+        {% for hab in personagem.classe.habilidades_de_classe %}
+            <li>{{ hab }}</li>
+        {% endfor %}
+    </ul>
+    <a class="novo_personagem" href="{{ url_for('index') }}">Criar outro personagem</a>
+
+</div>
+
+{% endblock %}

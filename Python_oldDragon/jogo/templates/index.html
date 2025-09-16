@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="h2_p">Criação de Personagem</h2>
+
+<form method="post" action="{{ url_for('criar_personagem') }}" class="form_p">
+    <div class="form_group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div class="form_group">
+        <label for="distribuicao">Estilo:</label>
+        <select id="distribuicao" name="distribuicao" required>
+            <option value="classico">Clássico (3d6)</option>
+            <option value="heroico">Heróico (4d6 descartando 1)</option>
+            <option value="aventureiro">Aventureiro (4d6)</option>
+        </select>
+    </div>
+
+    <div class="form_group">
+        <label for="raca">Raça:</label>
+        <select id="raca" name="raca" required>
+            {% for chave, raca in racas.items() %}
+                <option value="{{ chave }}">{{ raca.nome }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form_group">
+        <label for="classe">Classe:</label>
+        <select id="classe" name="classe" required>
+            {% for chave, classe in classes.items() %}
+                <option value="{{ chave }}">{{ classe.nome }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Gerar</button>
+</form>
+{% endblock %}
