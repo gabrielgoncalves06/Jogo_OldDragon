@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Old_dragon</title>
+
+</head>
+<body>
+    <header class="titulo">
+        <h1>old dragon</h1>
+        <picture>
+            <source media="(min-width: 1000px)" srcset="./static/image/image_dragão.jpg">
+            <source media="(min-width: 768px)" srcset="./static/image/image_dragão.jpg">
+            <source media="(min-width: 480px)" srcset="./static/image/image_dragão.jpg">
+            <img src="./static/image/image_dragão.jpg" alt="image_dragão" class="imagem-responsiva">
+        </picture>
+
+        <div>
+            Old Dragon, também conhecido como OD ou OD2, é um conjunto de regras que tutelam este jogo de RPG. Mais precisamente, o Old Dragon é um sistema de jogo,<br> um conjunto de regras para jogos clássicos de fantasia medieval e de espada e feitiçaria, em que Magos, Guerreiros, Clérigos e Ladrões invadem masmorras infestadas de monstros e armadilhas, e viajam por terras não desbravadas.
+        </div>
+         
+    </header>
+    <main>
+         {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

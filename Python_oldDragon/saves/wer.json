@@ -1,0 +1,29 @@
+{
+    "nome": "wer",
+    "atributos": {
+        "FOR": 9,
+        "DES": 14,
+        "CON": 9,
+        "INT": 13,
+        "SAB": 12,
+        "CAR": 12
+    },
+    "raca": {
+        "nome": "Humano",
+        "movimento": 9,
+        "infravisao": 0,
+        "habilidades": [
+            "Aprendizado: recebem +10% de experiência (XP) em todas as situações",
+            "Adaptabilidade: ganham +1 em uma Jogada de Proteção (JP) à sua escolha."
+        ]
+    },
+    "classe": {
+        "nome": "Guerreiro",
+        "dado_vida": "d8",
+        "atributo_primario": "FOR",
+        "habilidades": [
+            "Pode usar qualquer arma e armadura.",
+            "Recebe +1 em jogadas de ataque e dano a cada 3 níveis."
+        ]
+    }
+}

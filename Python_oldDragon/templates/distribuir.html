@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="h2_p">Distribuir Atributos - Estilo Aventureiro</h2>
+
+<form class="form_p" method="post" action="{{ url_for('finalizar_distribuicao') }}">
+    <input type="hidden" name="nome" value="{{ nome }}">
+    <input type="hidden" name="raca" value="{{ raca_escolhida }}">
+    <input type="hidden" name="classe" value="{{ classe_escolhida }}">
+
+    <p>Você rolou os seguintes valores: <strong>{{ valores }}</strong></p>
+
+    <p>Atribua cada valor a um atributo:</p>
+    <table border="1">
+        <tr><th>Atributo</th><th>Valor</th></tr>
+        {% for atr in atributos %}
+        <tr>
+            <td>{{ atr }}</td>
+            <td>
+                <select name="{{ atr }}" required class="select-atr">
+                    {% for v in valores %}
+                        <option value="{{ v }}">{{ v }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button type="submit">Finalizar Personagem</button>
+</form>
+
+<script>
+    const selects = document.querySelectorAll(".select-atr");
+
+    // 2) Função para atualizar quais opções podem ser escolhidas
+    function atualizarOpcoes() {
+        // Coleta todos os valores já escolhidos pelos selects
+        const escolhidos = Array.from(selects).map(s => s.value).filter(v => v !== "");
+
+        // Primeiro habilita todas as opções de todos os selects
+        selects.forEach(select => {
+            Array.from(select.options).forEach(opt => {
+                if (opt.value !== "") {
+                    opt.disabled = false;
+                }
+            });
+        });
+
+        // Agora desabilita nos outros selects os valores já escolhidos
+        selects.forEach(select => {
+            Array.from(select.options).forEach(opt => {
+                if (opt.value !== "" && escolhidos.includes(opt.value) && select.value !== opt.value) {
+                    opt.disabled = true;
+                }
+            });
+        });
+    }
+
+    // 3) Toda vez que o jogador mudar um valor, chamamos atualizarOpcoes()
+    selects.forEach(select => {
+        select.addEventListener("change", atualizarOpcoes);
+    });
+</script>
+
+
+{% endblock %}

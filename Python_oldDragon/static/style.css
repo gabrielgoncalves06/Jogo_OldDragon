@@ -1,0 +1,192 @@
+/* jogo/static/style.css
+   Tema: RPG / medieval (parchment, bordas ornamentadas, tipografia clássica)
+   Observação: usa fontes do Google Fonts — se estiver sem internet, troque por
+   serif genérica (ex: "Georgia, serif"). */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap');
+
+
+
+/* Definir Variáveis CSS Globais: É a aplicação mais comum. Você pode*/
+
+:root{
+  --bg-color: #efe3c6;        /* tom pergaminho */
+  --card-bg: rgba(255, 250, 240, 0.85);
+  --accent: #6b3f1a;          /* marrom antigo */
+  --accent-2: #9b6b2a;
+  --text: #2e2a23;
+  --muted: #6a5b48;
+  --shadow: 0 8px 20px rgba(0,0,0,0.25);
+  --border: 3px solid rgba(107,63,26,0.9);
+}
+
+* { box-sizing: border-box; }
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Cinzel", Georgia, serif;
+  background:
+     radial-gradient(1200px 600px at 10% 10%, rgba(155,107,42,0.06), transparent 10%),
+     linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.01)),
+     var(--bg-color);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header */
+header.titulo{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:18px 28px;
+  border-bottom: 6px double rgba(107,63,26,0.8);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
+  box-shadow: var(--shadow);
+}
+header.titulo h1{
+  margin:0;
+  font-family: "Uncial Antiqua", "Cinzel", serif;
+  font-size:36px;
+  color: var(--accent);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+header.titulo img{
+  border: 4px solid rgba(107,63,26,0.2);
+  border-radius:8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Main container */
+main{
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+/* Card-style form area */
+.form_p{
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Headings */
+.h2_p{
+  margin-top:0;
+  color: var(--accent-2);
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+
+/* Inputs and selects */
+input[type="text"], select {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 2px solid rgba(107,63,26,0.15);
+  background: rgba(255,255,255,0.9);
+  font-size: 15px;
+  outline: none;
+  display: block;
+  min-width: 260px;
+  color: var(--text);
+}
+input[type="text"]:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(155,107,42,0.12);
+}
+
+/* Buttons */
+button{
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(107,63,26,0.25);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+
+button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(107,63,26,0.3);
+}
+
+/* Tables - attributes */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid rgba(107,63,26,0.1);
+}
+table th {
+  background: linear-gradient(90deg, rgba(155,107,42,0.12), rgba(107,63,26,0.06));
+  padding: 10px;
+  text-align:left;
+  font-family: "Cinzel", serif;
+  font-weight:700;
+  color: var(--accent);
+}
+table td {
+  padding: 10px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  color: var(--muted);
+}
+
+/* Lists for features */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+ul li::before {
+  content: "♦";
+  color: var(--accent);
+  display: inline-block;
+  width: 18px;
+}
+
+/* Small ornament */
+.section-ornament {
+  margin: 18px 0;
+  padding: 12px;
+  border-left: 4px solid rgba(155,107,42,0.12);
+  background: linear-gradient(90deg, rgba(255,250,240,0.8), rgba(255,250,240,0.6));
+}
+
+/* Footer link */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  header.titulo { flex-direction:column; align-items:flex-start; gap:8px; padding:10px; }
+  input[type="text"], select { min-width:100%; }
+  main { padding:14px; margin: 12px; }
+  header.titulo img { width:80px; height:auto; }
+}
+
+/* Extra: style for distribuir.html select boxes to avoid duplicate assignment helper */
+/* (optional: you can add JS to prevent duplicates; this just makes selects look good) */
+.distribuir-table select {
+  width:100%;
+  max-width:140px;
+}
