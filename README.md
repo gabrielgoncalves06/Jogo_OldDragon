@@ -19,42 +19,7 @@ A lógica de conexão e inserção está no arquivo jogo/gerenciadobd.py.
 📂 Estrutura do Projeto
 A arquitetura do projeto segue uma organização modular, separando a lógica de negócio (Model) das rotas da aplicação (Controller).
 
-Python_oldDragon/
-├── jogo/                  # Pacote principal da aplicação
-│   ├── __init__.py
-│   ├── app.py             # Controller: Rotas Flask e lógica da aplicação
-│   ├── gerenciadobd.py    # Lógica de conexão com o MongoDB
-│   ├── gerenciador_save.py  # Lógica para salvar em JSON
-│   │
-│   ├── model/             # Model: Contém as regras de negócio
-│   │   ├── componentes/
-│   │   │   ├── dado.py
-│   │   │   └── gerador_atributos.py
-│   │   │
-│   │   ├── racas/
-│   │   │   ├── anao.py
-│   │   │   ├── elfo.py
-│   │   │   └── humano.py
-│   │   │
-│   │   └── classes_personagem/
-│   │       ├── guerreiro.py
-│   │       ├── mago.py
-│   │       ├── ladrao.py
-│   │       └── personagem.py
-│   │
-│   ├── static/            # Arquivos estáticos (CSS, Imagens)
-│   │   └── style.css
-│   │
-│   └── templates/         # Views: Arquivos HTML (Jinja2)
-│       ├── index.html
-│       ├── distribuir.html
-│       └── resultado.html
-│
-├── saves/                 # <-- DESTINO DOS SAVES EM JSON
-│   └── (personagens.json são criados aqui)
-│
-├── venv/                  # Ambiente virtual do Python
-└── requirements.txt       # Lista de dependências (Flask, PyMongo)
+
 🛠️ Como Executar o Projeto
 Clone o repositório:
 
