@@ -1,13 +1,7 @@
-/* jogo/static/style.css
-   Tema: RPG / medieval (parchment, bordas ornamentadas, tipografia clássica)
-   Observação: usa fontes do Google Fonts — se estiver sem internet, troque por
-   serif genérica (ex: "Georgia, serif"). */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap');
 
 
-
-/* Definir Variáveis CSS Globais: É a aplicação mais comum. Você pode*/
 
 :root{
   --bg-color: #efe3c6;        /* tom pergaminho */
@@ -59,14 +53,14 @@ header.titulo img{
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* Main container */
+
 main{
   max-width: 980px;
   margin: 28px auto;
   padding: 20px;
 }
 
-/* Card-style form area */
+
 .form_p{
   background: var(--card-bg);
   padding: 20px;
@@ -86,7 +80,7 @@ main{
 }
 
 
-/* Inputs and selects */
+
 input[type="text"], select {
   padding: 10px 12px;
   border-radius: 6px;
@@ -103,7 +97,7 @@ input[type="text"]:focus, select:focus {
   box-shadow: 0 4px 12px rgba(155,107,42,0.12);
 }
 
-/* Buttons */
+
 button{
   background: linear-gradient(180deg, var(--accent-2), var(--accent));
   color: #fff;
@@ -122,7 +116,7 @@ button:hover{
   box-shadow: 0 12px 22px rgba(107,63,26,0.3);
 }
 
-/* Tables - attributes */
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -146,7 +140,7 @@ table td {
   color: var(--muted);
 }
 
-/* Lists for features */
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -184,9 +178,3 @@ a:hover {
   header.titulo img { width:80px; height:auto; }
 }
 
-/* Extra: style for distribuir.html select boxes to avoid duplicate assignment helper */
-/* (optional: you can add JS to prevent duplicates; this just makes selects look good) */
-.distribuir-table select {
-  width:100%;
-  max-width:140px;
-}
